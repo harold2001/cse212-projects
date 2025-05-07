@@ -9,11 +9,22 @@ public static class Arrays
     public static double[] MultiplesOf(double number, int length)
     {
         // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // PLAN:
+        // 1. Allocate a double[] of size 'length'.
+        var result = new double[length];
+
+        // 2. For each index i from 0 to length-1:
+        //      a. Compute the (i+1)-th multiple: number * (i+1).
+        //      b. Store it at result[i].
+        for (int i = 0; i < length; i++)
+        {
+            // (i + 1) because the first multiple is number*1, then number*2, …
+            result[i] = number * (i + 1);
+        }
+
+        // 3. Return the filled array.
+        return result;
     }
 
     /// <summary>
@@ -26,8 +37,21 @@ public static class Arrays
     public static void RotateListRight(List<int> data, int amount)
     {
         // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+
+        // PLAN:
+        // 1. Let n = data.Count.
+        int n = data.Count;
+
+        // 2. Compute k = amount % n (though here amount ≤ n, so k == amount).
+        int k = amount % n;
+
+        // 3. Slice off the last k elements into a new list 'tail':
+        var tail = data.GetRange(n - k, k);
+
+        // 4. Remove those k elements from the end of 'data':
+        data.RemoveRange(n - k, k);
+
+        // 5. Insert 'tail' back at the front of 'data':
+        data.InsertRange(0, tail);
     }
 }
