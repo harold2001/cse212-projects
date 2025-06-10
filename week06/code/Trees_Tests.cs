@@ -63,7 +63,10 @@ public class TreeReverseTests
         tree.Insert(1);
         tree.Insert(6);
 
-        Assert.AreEqual("<IEnumerable>{10, 7, 6, 5, 4, 3, 1}", string.Join(", ", tree.Reverse().AsString()));
+        Assert.AreEqual(
+            "<IEnumerable>{10, 7, 6, 5, 4, 3, 1}",
+            string.Join(", ", tree.Reverse().AsString())
+        );
     }
 }
 
@@ -104,7 +107,10 @@ public class CreateTreeFromSortedListTests
     public void CreateTreeFromSortedList_127Nodes()
     {
         var tree = Trees.CreateTreeFromSortedList(Enumerable.Range(0, 127).ToArray()); // 2^7 - 1 nodes
-        Assert.AreEqual("<Bst>{" + string.Join(", ", Enumerable.Range(0, 127)) + "}", tree.ToString());
+        Assert.AreEqual(
+            "<Bst>{" + string.Join(", ", Enumerable.Range(0, 127)) + "}",
+            tree.ToString()
+        );
         Assert.AreEqual(7, tree.GetHeight()); // Any higher and its not balanced.
     }
 
@@ -112,7 +118,10 @@ public class CreateTreeFromSortedListTests
     public void CreateTreeFromSortedList_128Nodes()
     {
         var tree = Trees.CreateTreeFromSortedList(Enumerable.Range(0, 128).ToArray()); // 2^7 nodes
-        Assert.AreEqual("<Bst>{" + string.Join(", ", Enumerable.Range(0, 128)) + "}", tree.ToString());
+        Assert.AreEqual(
+            "<Bst>{" + string.Join(", ", Enumerable.Range(0, 128)) + "}",
+            tree.ToString()
+        );
         Assert.AreEqual(8, tree.GetHeight()); // Any higher and its not balanced.
     }
 
